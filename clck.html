@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clck</title>
+</head>
+<body><div id="container" 
+    style="text-align: center;">
+   <h1>CLOCK</h1>
+   <h1 id="aans">00:00</h1>
+   <button onclick="start()">START</button>
+   <button onclick="stop()">STOP</button>
+   <button onclick="reset()">RESET</button>
+   </div>
+</div> 
+</body>
+</html>
+<script>
+    var second=0;
+    var interval=null;
+    var answer=document.getElementById("aans");
+function padStart(value){
+    return String(value).padStart(2,"0")
+}
+
+
+function settime(){
+  var minite=Math.floor(second/60);
+  var seconds=second%60;
+    aans.innerHTML=`${padStart(minite)}:${padStart(seconds)}`;
+}
+
+    function time(){
+        second++;
+        settime()
+    }
+function start(){
+    if (interval) stop();
+interval=setInterval(time,1000);
+}
+function stop(){
+clearInterval(interval)
+
+}
+function reset(){
+    stop();
+second=0;
+settime()
+}
+</script>
+<style>
+div{
+    background-color:pink;
+    margin-top:12%;
+    margin-bottom: 13%;
+    margin-left: 37%;
+    padding:1%;
+    width:20%;
+    border-radius: 5px;
+}
+button{
+    padding:5px;
+    background-color: rgb(148, 148, 233);
+    border-radius: 3px;
+}
+button:hover{
+    background-color: blue;
+}
+body{
+background-color: indianred;
+}
+</style>
